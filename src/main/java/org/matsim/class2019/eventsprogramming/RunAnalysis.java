@@ -1,8 +1,13 @@
 package org.matsim.class2019.eventsprogramming;
 
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.HashSet;
+import java.util.Set;
 
+import org.matsim.api.core.v01.Id;
+import org.matsim.api.core.v01.network.Link;
 import org.matsim.core.api.experimental.events.EventsManager;
 import org.matsim.core.events.EventsUtils;
 import org.matsim.core.events.MatsimEventsReader;
@@ -40,6 +45,19 @@ public class RunAnalysis {
 		
 		System.out.println("Difference: " + (totalTravelTime - baseTotalTravelTime)/3600 + " hours");
 		
+		
+		
+		Set<Id<Link>> linksToWatch = new HashSet<>();
+		
+		linksToWatch.add(Id.createLinkId("77389"));
+		linksToWatch.add(Id.createLinkId("77340"));
+		
+		
+		AgentTravelledOnLinkEventHandler agentTravelledOnLinkEventHandler = new AgentTravelledOnLinkEventHandler(linksToWatch);
+		
+		agentTravelledOnLinkEventHandler.getPersonOnWatchedLinks().forEach(a->System.out.println(a));
+		
+//		CSVPrinter csvPrinter = new CSVPrinter(Files.createFile(Paths.g, attrs))
 		
 	}
 
