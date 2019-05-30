@@ -57,7 +57,7 @@ public class RunAnalysis {
 		
 		agentTravelledOnLinkEventHandler.getPersonOnWatchedLinks().forEach(a->System.out.println(a));
 		
-//		CSVPrinter csvPrinter = new CSVPrinter(Files.createFile(Paths.g, attrs))
+//		CsvPrinter csvPrinter = new CsvPrinter(Files.createFile(Paths.g, attrs));
 		
 	}
 
